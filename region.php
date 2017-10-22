@@ -6,7 +6,10 @@
         foreach ($parsed_data as $pars => $par){               // просматриваем полученный массив
         echo 'код региона - '.$par["data"]["0"]["regionCode"];}// получаем код региона       
         $rcode = $par["data"]["0"]["regionCode"];              // запоминаем в переменную(необязательно)
-        echo '<pre>';print_r ($parsed_data);
+        echo '<pre>';print_r ($parsed_data);                   
+        $fp = fopen ("test.txt", "a");                         // кладём переменную в текстовый файл
+        fwrite($fp,"$rcode\n");                                // дописываем файл с новой строки
+        fclose($fp);                                           // закрываем файл
 ?>
 <?php       /*
 if (($fp = fopen("01.11.12.141_2015.csv", "r")) !== FALSE) {
